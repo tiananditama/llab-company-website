@@ -12,6 +12,7 @@ function ExperimentalHome({ onFlip, onLogo, onNav, onProject }) {
           playsInline
         />
         <div className="hero-video-tint hero-video-tint--light"></div>
+      <LiquidBlobs count={3} />
         <div className="copy">
           <h1>Experimental.</h1>
           <p>What happens when you stop asking permission. Work made in the studio, not the deck.</p>

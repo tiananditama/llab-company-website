@@ -1046,3 +1046,59 @@ a { color: inherit; text-decoration: none; }
 .exp-home .approach-closer p { color: var(--ink-3); }
 .exp-home .approach-rule { background: var(--hairline-on-light); }
 .exp-home .approach-eyebrow { color: var(--llab-green-deep); }
+
+/* --- Liquid Glass Blobs (ExperimentalHome overlay) ---
+   Fixed-position layer above the page. pointer-events: none so the
+   user can still click through to buttons / links underneath. The
+   container itself is invisible; each .liquid-blob is a circular
+   element with backdrop-filter glass + a soft inner highlight, so it
+   refracts whatever is behind (video, type, hero copy). Z-index sits
+   above content but below the navbar (10000) so nav is always usable.
+*/
+.liquid-defs {
+  position: absolute;
+  width: 0; height: 0;
+  pointer-events: none;
+}
+.liquid-blobs-wrap {
+  /* Portaled to <body> so it stacks above the navbar. Position fixed +
+     a per-frame clip-path: inset() keeps blobs visually inside the hero
+     even though they render at body level. */
+  position: fixed;
+  inset: 0;
+  z-index: 10010;
+  pointer-events: none;
+  overflow: hidden;
+}
+.liquid-blob {
+  position: absolute;
+  left: 0; top: 0;
+  border-radius: 50%;
+  /* Very thin tint so the refracted/blurred backdrop reads strongly. */
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.04) 38%, rgba(255,255,255,0) 70%),
+    rgba(255,255,255,0.01);
+  border: 1px solid rgba(255,255,255,0.32);
+  /* Lens refraction (url(#)) + heavy blur + saturation boost.
+     The url() pass warps the backdrop radially and splits R/G/B channels
+     so blob rims show real chromatic fringing like curved glass. */
+  -webkit-backdrop-filter: url(#liquid-chromatic) blur(2px) saturate(120%);
+  backdrop-filter: url(#liquid-chromatic) blur(2px) saturate(120%);
+  box-shadow:
+    inset 0 3px 10px rgba(255,255,255,0.35),
+    inset 0 -6px 18px rgba(11,12,9,0.08),
+    0 6px 28px rgba(11,12,9,0.10);
+  will-change: transform, border-radius;
+}
+/* Brave-mood adjustment (in case we ever drop blobs on the dark page):
+   slightly darker glass so the highlight reads against the dark video. */
+.brave-home .liquid-blob {
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.06) 42%, rgba(255,255,255,0) 78%),
+    rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.18);
+  box-shadow:
+    inset 0 3px 10px rgba(255,255,255,0.22),
+    inset 0 -6px 18px rgba(0,0,0,0.18),
+    0 6px 28px rgba(0,0,0,0.20);
+}
