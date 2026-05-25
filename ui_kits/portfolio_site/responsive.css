@@ -45,38 +45,59 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 28px;
   padding: 96px 24px 48px;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 32px;
+  font-weight: 800;
+  font-size: 40px;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   -webkit-backdrop-filter: blur(40px) saturate(180%);
   backdrop-filter: blur(40px) saturate(180%);
 }
 .nav-overlay.brave {
-  background: rgba(10, 11, 8, 0.92);
+  background: rgba(10, 11, 8, 0.94);
   color: var(--paper-2);
 }
 .nav-overlay.experimental {
-  background: rgba(244, 245, 239, 0.94);
+  background: rgba(244, 245, 239, 0.96);
   color: var(--ink-3);
 }
 .nav-overlay.is-open { display: flex; }
 .nav-overlay a {
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 4px 8px;
+  font-weight: 800;
   transition: color 140ms var(--ease-out);
 }
 .nav-overlay a:hover,
 .nav-overlay a.is-active { color: var(--llab-green); }
-.nav-overlay .flip-btn {
-  width: 56px; height: 56px;
-  margin-top: 16px;
+
+/* Mood-change row at the bottom of the overlay — icon + visible label
+   so it reads as an action, not a stray icon. */
+.nav-overlay .flip-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 12px 20px;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  cursor: pointer;
+  background: transparent;
+  color: inherit;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
-.nav-overlay .flip-btn img { width: 36px; height: 36px; }
-.nav-overlay .flip-tip { display: none; }
+.nav-overlay .flip-row img {
+  width: 22px; height: 22px;
+}
+.nav-overlay.brave .flip-row img {
+  filter: brightness(0) invert(1);
+}
 
 /* ============================================================
    ≤ 900px — tablets and phones
@@ -112,47 +133,83 @@
     flex-grow: 1;
     filter: none;
   }
+  /* Dead-center the CTA in each stacked half (both axes).
+     Each half is 50vh tall, so top:50% of the half puts the button
+     squarely in the middle of its own split. width: max-content +
+     translate(-50%, -50%) gives precise centering regardless of label. */
   .gateway-cta.left,
   .gateway-cta.right {
-    left: 50%;
-    right: auto;
-    bottom: 10%;
-    transform: translateX(-50%);
+    left: 50% !important;
+    right: auto !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: max-content;
+    margin: 0;
   }
   .gateway-cta .btn {
     height: 48px;
     padding: 0 32px;
-    min-width: 160px;
+    min-width: 180px;
     font-size: 16px;
   }
-  /* Glitch title: shrink + center over the full split */
+
+  /* Move the glitch title out of the buttons' way \u2014 sit it tight
+     against the seam between the two halves rather than dead-center. */
   .gateway-title {
-    top: 50%;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
     width: 100%;
     padding: 0 16px;
   }
   .gateway-title .small { font-size: 16px !important; padding: 6px 12px !important; }
   .gateway-title .big   { font-size: 56px !important; padding: 6px 14px 10px !important; }
 
-  /* --- Hero (brave home) --- */
+  /* --- Hero (brave home) ---
+     Match the exp-hero section size: fill the viewport minus nav,
+     no overflow off-screen, content vertically centered. */
   .hero-brave {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 88px 24px 48px;
-    min-height: auto;
+    gap: 24px;
+    padding: 24px 24px 32px;
+    min-height: calc(100svh - 64px);
+    height: calc(100svh - 64px);
+    align-content: center;
   }
-  .hero-brave h1 { font-size: 40px; }
-  .hero-brave .lede { font-size: 15px; max-width: none; }
+  .hero-brave h1 {
+    font-size: clamp(56px, 15vw, 84px);
+    line-height: 0.9;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+  .hero-brave .lede { font-size: 15px; max-width: none; margin: 16px 0 20px; }
   .hero-brave .cta-row { flex-wrap: wrap; }
-  .hero-art { aspect-ratio: 4/3; max-height: 360px; }
+  .hero-art { aspect-ratio: 4/3; max-height: 280px; }
 
-  /* --- Exp hero --- */
-  .exp-hero { min-height: 560px; }
+  /* --- Exp hero ---
+     Was overflowing off the bottom of the screen because of
+     min-height: 720px + bottom: 88px positioning. Fix: cap to the
+     visible viewport (svh handles mobile browser chrome) and
+     vertically center the copy instead of pinning to bottom. */
+  .exp-hero {
+    height: calc(100svh - 64px);
+    min-height: calc(100svh - 64px);
+  }
   .exp-hero .copy {
-    left: 24px; right: 24px; bottom: 48px;
+    left: 24px;
+    right: 24px;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
     max-width: none;
   }
-  .exp-hero .copy h1 { font-size: 36px; }
+  .exp-hero .copy h1 {
+    font-size: clamp(64px, 18vw, 104px);
+    line-height: 0.88;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    overflow-wrap: break-word;
+  }
   .exp-hero .copy p { font-size: 13px; }
   .exp-hero .cta-row { flex-wrap: wrap; gap: 12px; }
   .exp-hero .cta-row .btn {
@@ -272,8 +329,8 @@
    ============================================================ */
 @media (max-width: 600px) {
   .gateway-title .big { font-size: 44px !important; }
-  .hero-brave h1 { font-size: 32px; }
-  .exp-hero .copy h1 { font-size: 30px; }
+  /* Hero h1's use clamp() above so they already scale fluidly —
+     no override here, let them fill the screen. */
   .projects-hero h1 { font-size: 36px; }
   .pd-title { font-size: 34px; }
   .pd-next-title { font-size: 28px; }

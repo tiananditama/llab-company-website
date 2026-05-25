@@ -87,8 +87,9 @@ function Navbar({ mood, onFlip, onLogo, onNav, active, hideFlip }) {
         {overlayLink("approach", "APPROACH")}
         {overlayLink("contact", "CONTACT")}
         {!hideFlip && (
-          <button className="flip-btn" onClick={handleFlip} aria-label={`Switch to ${isExp ? "Brave" : "Experimental"} mood`}>
+          <button className="flip-row" onClick={handleFlip} aria-label={`Switch to ${isExp ? "Brave" : "Experimental"} mood`}>
             <img src={iconSrc} alt="" />
+            <span>Mood change?</span>
           </button>
         )}
       </div>
