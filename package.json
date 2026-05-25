@@ -1,0 +1,15 @@
+{
+  "name": "llab-portfolio-site",
+  "version": "1.0.0",
+  "description": "LLAB agency portfolio site — Brave and Experimental moods.",
+  "private": true,
+  "scripts": {
+    "start": "serve -s ui_kits/portfolio_site -l ${PORT:-3000}"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
