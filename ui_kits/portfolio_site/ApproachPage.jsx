@@ -17,8 +17,24 @@ function CyclingOperator() {
   );
 }
 
+// Mirror the responsive font-size steps applied to .approach-hero-title in
+// responsive.css so the particle canvas shrinks in lockstep with "BRAVE".
+function pickHeroFontPx() {
+  if (typeof window === "undefined") return 72;
+  const w = window.innerWidth;
+  if (w <= 600) return 36;
+  if (w <= 900) return 44;
+  return 72;
+}
+
 function ApproachPage({ mood, onFlip, onLogo, onNav }) {
   const wrap = mood === "experimental" ? "exp-home" : "brave-home";
+  const [heroFontPx, setHeroFontPx] = React.useState(pickHeroFontPx);
+  React.useEffect(() => {
+    const onResize = () => setHeroFontPx(pickHeroFontPx());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
   return (
     <div className={`${wrap} page-padded`}>
       <Navbar mood={mood} onFlip={onFlip} onLogo={onLogo} onNav={onNav} active="approach" />
@@ -27,7 +43,7 @@ function ApproachPage({ mood, onFlip, onLogo, onNav }) {
         <div className="approach-hero-title">
           <span>BRAVE</span>
           <CyclingOperator />
-          <ExperimentalParticles mood={mood} />
+          <ExperimentalParticles mood={mood} fontPx={heroFontPx} />
         </div>
         <div className="approach-hero-slot">
           <video
