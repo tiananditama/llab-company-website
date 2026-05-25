@@ -14,7 +14,9 @@ function ExperimentalHome({ onFlip, onLogo, onNav, onProject }) {
         <div className="hero-video-tint hero-video-tint--light"></div>
       <LiquidBlobs count={3} />
         <div className="copy">
-          <h1>Experimental.</h1>
+          <h1>
+            <ExperimentalParticles text="Experimental." fontPx={60} mood="experimental" />
+          </h1>
           <p>What happens when you stop asking permission. Work made in the studio, not the deck.</p>
           <div className="cta-row">
             <Button variant="green" onClick={() => onNav && onNav("projects")}>See the work</Button>

@@ -27,7 +27,7 @@ function ApproachPage({ mood, onFlip, onLogo, onNav }) {
         <div className="approach-hero-title">
           <span>BRAVE</span>
           <CyclingOperator />
-          <span>EXPERIMENTAL</span>
+          <ExperimentalParticles mood={mood} />
         </div>
         <div className="approach-hero-slot">
           <video
