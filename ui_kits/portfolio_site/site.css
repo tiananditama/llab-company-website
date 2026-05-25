@@ -42,7 +42,7 @@ a { color: inherit; text-decoration: none; }
 
 /* --- Navbar --- */
 .navbar {
-  height: 158px; width: 100%;
+  height: 79px; width: 100%;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 0 0 0;
   position: fixed; top: 0; left: 0; right: 0;
@@ -86,7 +86,7 @@ a { color: inherit; text-decoration: none; }
   margin-left: auto;
 }
 .nav-logo {
-  width: 256px; height: 256px;
+  width: 128px; height: 128px;
   margin: 0;
   align-self: flex-start;
   background: var(--llab-green);
@@ -104,7 +104,7 @@ a { color: inherit; text-decoration: none; }
 .nav-links {
   display: flex; align-items: center; gap: 24px;
   padding-right: 56px;
-  font-family: var(--font-ui); font-weight: 700; font-size: 32px;
+  font-family: var(--font-ui); font-weight: 700; font-size: 16px;
   letter-spacing: -0.01em; text-transform: uppercase;
 }
 .nav-link {
@@ -152,7 +152,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-2);
   font-family: var(--font-ui);
   font-weight: 700;
-  font-size: 20px;
+  font-size: 12px;
   letter-spacing: -0.01em;
   text-transform: uppercase;
   padding: 14px 28px;
@@ -358,10 +358,10 @@ a { color: inherit; text-decoration: none; }
 .gateway-cta.left  { left: 14%; }
 .gateway-cta.right { right: 14%; }
 .gateway-cta .btn {
-  height: 96px;
-  padding: 0 80px;
-  min-width: 320px;
-  font-size: 40px;
+  height: 56px;
+  padding: 0 48px;
+  min-width: 200px;
+  font-size: 20px;
 }
 .gateway-nav {
   position: absolute; top: 0; left: 0; right: 0; z-index: 10;
@@ -377,12 +377,12 @@ a { color: inherit; text-decoration: none; }
    image). Needs the same nav-height offset. */
 .exp-home.page-padded,
 .brave-home.page-padded {
-  padding-top: 158px;
+  padding-top: 79px;
 }
 .hero-brave {
   position: relative;
   min-height: 100vh;
-  padding: 160px 80px 120px;
+  padding: 80px 80px 60px;
   display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center;
   overflow: hidden;
 }
@@ -414,26 +414,26 @@ a { color: inherit; text-decoration: none; }
   grid-column: 1 / 2;
 }
 .hero-brave .eyebrow {
-  font-family: var(--font-mono); font-weight: 700; font-size: 22px;
-  letter-spacing: 0.06em; text-transform: uppercase; color: var(--llab-green);
-  margin-bottom: 36px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 12px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--llab-green);
+  margin-bottom: 20px;
 }
 .hero-brave h1 {
-  font-family: var(--font-display); font-weight: 700; font-size: 120px;
+  font-family: var(--font-display); font-weight: 700; font-size: 60px;
   letter-spacing: -0.02em; line-height: 0.92; margin: 0;
 }
 .hero-brave h1 em { font-style: normal; color: var(--llab-green); }
 .hero-brave .lede {
-  font-family: var(--font-display); font-weight: 400; font-size: 32px;
-  line-height: 1.4; letter-spacing: -0.02em; margin: 40px 0 48px;
-  max-width: 620px; color: rgba(244,244,239,0.85);
+  font-family: var(--font-display); font-weight: 400; font-size: 16px;
+  line-height: 1.5; letter-spacing: -0.01em; margin: 24px 0 28px;
+  max-width: 480px; color: rgba(244,244,239,0.85);
 }
-.hero-brave .cta-row { display: flex; gap: 20px; }
+.hero-brave .cta-row { display: flex; gap: 12px; }
 .hero-brave .cta-row .btn {
-  height: 72px;
-  padding: 0 56px;
-  min-width: 260px;
-  font-size: 30px;
+  height: 44px;
+  padding: 0 32px;
+  min-width: 160px;
+  font-size: 15px;
 }
 .hero-art {
   aspect-ratio: 4/5; background: var(--ink-4);
@@ -453,7 +453,7 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-art .stamp-big {
   position: absolute; right: 32px; top: 32px;
-  font-family: var(--font-display); font-weight: 700; font-size: 96px;
+  font-family: var(--font-display); font-weight: 700; font-size: 48px;
   line-height: 0.9; color: rgba(244,244,239,0.08); letter-spacing: -0.02em;
 }
 
@@ -472,14 +472,14 @@ a { color: inherit; text-decoration: none; }
   z-index: 5;
 }
 .exp-hero .copy h1 {
-  font-family: var(--font-display); font-weight: 700; font-size: 120px;
-  line-height: 0.92; letter-spacing: -0.02em; margin: 0 0 24px;
+  font-family: var(--font-display); font-weight: 700; font-size: 60px;
+  line-height: 0.92; letter-spacing: -0.02em; margin: 0 0 16px;
   color: var(--ink-2);
 }
 .exp-hero .copy p {
-  font-family: var(--font-display); font-weight: 700; font-size: 22px;
-  line-height: 1.35; letter-spacing: -0.02em; color: var(--ink-3);
-  margin: 0 0 32px;
+  font-family: var(--font-display); font-weight: 700; font-size: 14px;
+  line-height: 1.4; letter-spacing: -0.01em; color: var(--ink-3);
+  margin: 0 0 20px;
 }
 .exp-hero .cta-row { display: flex; gap: 16px; }
 
@@ -491,8 +491,8 @@ a { color: inherit; text-decoration: none; }
   min-height: 0;
 }
 .intro-block p {
-  font-family: var(--font-display); font-weight: 400; font-size: 80px;
-  line-height: 1.02; letter-spacing: -0.02em; margin: 0;
+  font-family: var(--font-display); font-weight: 400; font-size: 40px;
+  line-height: 1.05; letter-spacing: -0.02em; margin: 0;
   max-width: none; width: 100%; text-align: left;
 }
 .intro-block strong { font-weight: 700; }
@@ -561,7 +561,7 @@ a { color: inherit; text-decoration: none; }
 .marquee-word {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 96px;
+  font-size: 48px;
   line-height: 1;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -570,7 +570,7 @@ a { color: inherit; text-decoration: none; }
 .marquee-sep {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 56px;
+  font-size: 28px;
   line-height: 1;
   opacity: 0.55;
 }
@@ -637,7 +637,7 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 64px;
 }
 .projects .head h2 {
-  font-family: var(--font-display); font-weight: 700; font-size: 72px;
+  font-family: var(--font-display); font-weight: 700; font-size: 36px;
   letter-spacing: -0.02em; line-height: 1; margin: 0;
 }
 .projects .head .meta {
@@ -666,18 +666,18 @@ a { color: inherit; text-decoration: none; }
 .project-card:hover .thumb::after { opacity: 1; }
 .project-card .meta-row {
   display: flex; justify-content: space-between; align-items: baseline;
-  margin: 20px 0 12px;
-  font-family: var(--font-mono); font-weight: 700; font-size: 36px;
+  margin: 16px 0 8px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 18px;
   letter-spacing: 0.06em; text-transform: uppercase;
 }
 .project-card .meta-row .num { color: var(--llab-green); }
 .project-card.experimental .meta-row .num { color: var(--ink-2); }
 .project-card .meta-row > span:last-child {
-  font-size: 16px;
+  font-size: 10px;
   align-self: center;
 }
 .project-card h3 {
-  font-family: var(--font-display); font-weight: 700; font-size: 72px;
+  font-family: var(--font-display); font-weight: 700; font-size: 36px;
   line-height: 1; letter-spacing: -0.02em; margin: 0;
 }
 
@@ -689,9 +689,9 @@ a { color: inherit; text-decoration: none; }
 .footer.brave { background: var(--ink-1); color: var(--paper-2); border-top: 1px solid var(--hairline); }
 .footer.experimental { background: var(--paper-2); color: var(--ink-3); border-top: 1px solid var(--hairline-on-light); }
 .footer h4 {
-  font-family: var(--font-mono); font-weight: 700; font-size: 28px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 14px;
   letter-spacing: 0.06em; text-transform: uppercase;
-  margin: 0 0 32px; opacity: 0.7;
+  margin: 0 0 16px; opacity: 0.7;
 }
 .footer .footer-mark { display: flex; align-items: center; }
 .footer-mark-img {
@@ -704,7 +704,7 @@ a { color: inherit; text-decoration: none; }
 .footer.experimental .footer-mark-img { filter: invert(1); }
 .footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
 .footer a {
-  font-family: var(--font-display); font-weight: 700; font-size: 28px;
+  font-family: var(--font-display); font-weight: 700; font-size: 14px;
   letter-spacing: -0.02em; line-height: 1;
 }
 .footer a:hover { color: var(--llab-green); }
@@ -728,13 +728,13 @@ a { color: inherit; text-decoration: none; }
 .exp-home .contact-hero { background: var(--paper-3); color: var(--ink-3); }
 
 .contact-hero h1 {
-  font-family: var(--font-display); font-weight: 400; font-size: 80px;
+  font-family: var(--font-display); font-weight: 400; font-size: 40px;
   line-height: 1.12; letter-spacing: -0.02em; margin: 0;
 }
 .contact-hero-note {
-  margin: 56px 0 0;
-  font-family: var(--font-mono); font-weight: 400; font-size: 30px;
-  line-height: 1.4; color: var(--llab-green);
+  margin: 28px 0 0;
+  font-family: var(--font-mono); font-weight: 400; font-size: 15px;
+  line-height: 1.45; color: var(--llab-green);
 }
 .exp-home .contact-hero-note { color: var(--llab-green-deep); }
 
@@ -760,12 +760,12 @@ a { color: inherit; text-decoration: none; }
 }
 .contact-col { display: flex; flex-direction: column; gap: 24px; }
 .contact-col h2 {
-  font-family: var(--font-display); font-weight: 400; font-size: 110px;
-  line-height: 1; letter-spacing: -0.02em; margin: 0 0 24px;
+  font-family: var(--font-display); font-weight: 400; font-size: 56px;
+  line-height: 1; letter-spacing: -0.02em; margin: 0 0 16px;
 }
 .contact-col-note {
-  font-family: var(--font-mono); font-weight: 400; font-size: 28px;
-  line-height: 1.45; color: var(--llab-green); margin: 0;
+  font-family: var(--font-mono); font-weight: 400; font-size: 14px;
+  line-height: 1.5; color: var(--llab-green); margin: 0;
 }
 .exp-home .contact-col-note { color: var(--llab-green-deep); }
 
@@ -774,15 +774,15 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 40px;
 }
 .contact-eyebrow {
-  font-family: var(--font-mono); font-weight: 900; font-size: 48px;
+  font-family: var(--font-mono); font-weight: 900; font-size: 24px;
   letter-spacing: 0.04em; text-transform: uppercase;
   color: var(--paper-2);
 }
 .exp-home .contact-eyebrow { color: var(--ink-3); }
 .contact-line {
-  font-family: var(--font-mono); font-weight: 400; font-size: 28px;
+  font-family: var(--font-mono); font-weight: 400; font-size: 14px;
   line-height: 1.5; color: var(--paper-2); margin: 0;
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px;
 }
 .exp-home .contact-line { color: var(--ink-3); }
 .contact-line a { color: inherit; border-bottom: 1px solid currentColor; }
@@ -804,8 +804,8 @@ a { color: inherit; text-decoration: none; }
 
 .approach-hero-title {
   font-family: var(--font-display); font-weight: 700;
-  font-size: 144px; line-height: 1; letter-spacing: -0.02em;
-  display: flex; flex-direction: column; gap: 12px;
+  font-size: 72px; line-height: 1; letter-spacing: -0.02em;
+  display: flex; flex-direction: column; gap: 8px;
 }
 .approach-hero-title .bracket {
   color: var(--llab-green);
@@ -852,13 +852,13 @@ a { color: inherit; text-decoration: none; }
 }
 .approach-item { display: flex; flex-direction: column; gap: 28px; }
 .approach-eyebrow {
-  font-family: var(--font-mono); font-weight: 700; font-size: 48px;
-  letter-spacing: 0.02em; text-transform: uppercase;
+  font-family: var(--font-mono); font-weight: 700; font-size: 24px;
+  letter-spacing: 0.04em; text-transform: uppercase;
   color: var(--llab-green);
 }
 .approach-body {
-  font-family: var(--font-mono); font-weight: 400; font-size: 28px;
-  line-height: 1.45; letter-spacing: 0; color: var(--paper-2);
+  font-family: var(--font-mono); font-weight: 400; font-size: 14px;
+  line-height: 1.55; letter-spacing: 0; color: var(--paper-2);
   margin: 0;
 }
 
@@ -872,7 +872,7 @@ a { color: inherit; text-decoration: none; }
   display: flex; flex-direction: column; gap: 28px;
 }
 .approach-closer p {
-  font-family: var(--font-ui); font-weight: 400; font-size: 44px;
+  font-family: var(--font-ui); font-weight: 400; font-size: 22px;
   line-height: 1.35; letter-spacing: -0.01em; color: var(--paper-2);
   margin: 0;
 }

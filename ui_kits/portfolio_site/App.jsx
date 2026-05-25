@@ -1,7 +1,7 @@
 // App.jsx — top-level router. Tracks (mood, page) and renders the right shell.
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "gatewaySmall": 72,
-  "gatewayBig": 288
+  "gatewaySmall": 36,
+  "gatewayBig": 144
 }/*EDITMODE-END*/;
 
 function App() {

@@ -2,6 +2,6 @@
   "public": ".",
   "cleanUrls": false,
   "redirects": [
-    { "source": "/", "destination": "/ui_kits/portfolio_site/", "type": 302 }
+    { "source": "/", "destination": "/ui_kits/portfolio_site/index.html", "type": 302 }
   ]
 }
