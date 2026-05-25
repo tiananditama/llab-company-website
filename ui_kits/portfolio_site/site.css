@@ -981,22 +981,17 @@ a { color: inherit; text-decoration: none; }
 
 .approach-hero-slot {
   height: 360px;
-  background: linear-gradient(135deg, #C9B557 0%, #6E5A1F 100%);
+  background: var(--ink-4);
   border: 1px solid var(--hairline);
   position: relative; overflow: hidden;
-  display: flex; align-items: flex-end; padding: 20px;
+  display: flex; align-items: center; justify-content: center;
 }
-.approach-hero-slot::after {
-  content: ""; position: absolute; inset: 0;
-  background: repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 18px);
-  pointer-events: none;
+.approach-hero-slot video,
+.approach-hero-slot img {
+  width: 100%; height: 100%; display: block;
+  object-fit: cover;
 }
 .exp-home .approach-hero-slot { border-color: var(--hairline-on-light); }
-.approach-hero-slot .approach-img-label {
-  font-family: var(--font-mono); font-weight: 700; font-size: 16px;
-  letter-spacing: 0.08em; color: var(--llab-green);
-  position: relative; z-index: 1;
-}
 
 /* --- Approach section --- */
 .approach {

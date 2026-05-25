@@ -29,8 +29,14 @@ function ApproachPage({ mood, onFlip, onLogo, onNav }) {
           <CyclingOperator />
           <span>EXPERIMENTAL</span>
         </div>
-        <div className="approach-hero-slot" role="img" aria-label="Featured imagery — to be supplied">
-          <span className="approach-img-label">IMG · HERO</span>
+        <div className="approach-hero-slot">
+          <video
+            src="assets/approach-hero.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
         </div>
       </section>
 
