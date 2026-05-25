@@ -5,11 +5,45 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 }/*EDITMODE-END*/;
 
 function App() {
-  const [mood, setMood] = React.useState(null);
-  const [page, setPage] = React.useState("home");
+  // Initial state — either restore from history.state (e.g. user reloaded
+  // mid-navigation) or default to the gateway.
+  const initial = (typeof window !== "undefined" && window.history.state && window.history.state.__llab)
+    ? window.history.state.__llab
+    : { mood: null, page: "home", projectSlug: null };
+  const [mood, setMood] = React.useState(initial.mood);
+  const [page, setPage] = React.useState(initial.page);
   // null = index/grid view; a slug = detail view for that project
-  const [projectSlug, setProjectSlug] = React.useState(null);
+  const [projectSlug, setProjectSlug] = React.useState(initial.projectSlug);
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  // History sync: push a new entry whenever (mood, page, projectSlug) changes
+  // so the browser back button walks through navigation instead of
+  // exiting the site. Initial mount uses replaceState so we don't
+  // immediately push a duplicate entry.
+  const isFirstSync = React.useRef(true);
+  React.useEffect(() => {
+    const state = { __llab: { mood, page, projectSlug } };
+    if (isFirstSync.current) {
+      isFirstSync.current = false;
+      window.history.replaceState(state, "");
+    } else {
+      window.history.pushState(state, "");
+    }
+  }, [mood, page, projectSlug]);
+
+  // Restore state when the user presses back/forward.
+  React.useEffect(() => {
+    const onPop = (e) => {
+      const s = (e.state && e.state.__llab) || { mood: null, page: "home", projectSlug: null };
+      // Don't re-trigger the push effect for this restore.
+      isFirstSync.current = true;
+      setMood(s.mood);
+      setPage(s.page);
+      setProjectSlug(s.projectSlug);
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
   const flip = () => setMood(mood === "brave" ? "experimental" : "brave");
   const goGateway = () => { setMood(null); setPage("home"); setProjectSlug(null); };
