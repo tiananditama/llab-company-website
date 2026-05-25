@@ -1,5 +1,5 @@
 // ExperimentalHome.jsx — light, full-bleed abstract hero
-function ExperimentalHome({ onFlip, onLogo, onNav }) {
+function ExperimentalHome({ onFlip, onLogo, onNav, onProject }) {
   return (
     <div className="exp-home">
       <section className="exp-hero">
@@ -16,7 +16,7 @@ function ExperimentalHome({ onFlip, onLogo, onNav }) {
           <h1>Experimental.</h1>
           <p>What happens when you stop asking permission. Work made in the studio, not the deck.</p>
           <div className="cta-row">
-            <Button variant="green">See the work</Button>
+            <Button variant="green" onClick={() => onNav && onNav("projects")}>See the work</Button>
             <Button variant="outline-light" onClick={() => onNav && onNav("approach")}>Our approach</Button>
           </div>
         </div>
@@ -25,7 +25,7 @@ function ExperimentalHome({ onFlip, onLogo, onNav }) {
       <IntroBlock variant="glass" />
       <Approach />
       <Marquee variant="glass" />
-      <Projects mood="experimental" />
+      <Projects mood="experimental" onProject={onProject} />
       <Footer mood="experimental" onFlip={onFlip} onNav={onNav} />
     </div>
   );

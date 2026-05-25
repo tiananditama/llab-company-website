@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:liquid-lab.com)",
+      "PowerShell($resp = Invoke-WebRequest -Uri \"https://liquid-lab.com/Projects\" -UserAgent \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0 Safari/537.36\" -UseBasicParsing; $resp.StatusCode; $resp.Content.Length; $resp.Content.Substring\\(0, [Math]::Min\\(2000, $resp.Content.Length\\)\\))",
+      "PowerShell(& \"c:\\\\Users\\\\Crew\\\\llab scrape\\\\scrape.ps1\")",
+      "PowerShell(. \"c:\\\\Users\\\\Crew\\\\llab scrape\\\\scrape.ps1\" 2>$null)",
+      "PowerShell($ErrorActionPreference = 'Stop')",
+      "PowerShell($ua = \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0 Safari/537.36\")",
+      "PowerShell(winget install --id=Gyan.FFmpeg -e --accept-source-agreements --accept-package-agreements --silent)",
+      "PowerShell(& \"c:\\\\Users\\\\Crew\\\\llab scrape\\\\convert-gifs.ps1\")",
+      "PowerShell(& \"c:\\\\Users\\\\Crew\\\\llab scrape\\\\convert-jpegs.ps1\")",
+      "PowerShell(& \"c:\\\\Users\\\\Crew\\\\llab scrape\\\\convert-pngs.ps1\")"
+    ]
+  }
+}

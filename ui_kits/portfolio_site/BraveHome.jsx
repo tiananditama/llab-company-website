@@ -1,5 +1,5 @@
 // BraveHome.jsx — dark hero with looping brave.mp4 background
-function BraveHome({ onFlip, onLogo, onNav }) {
+function BraveHome({ onFlip, onLogo, onNav, onProject }) {
   return (
     <div className="brave-home">
       <Navbar mood="brave" onFlip={onFlip} onLogo={onLogo} onNav={onNav} active="home" />
@@ -19,7 +19,7 @@ function BraveHome({ onFlip, onLogo, onNav }) {
             LLAB is an integrated creative agency built for the brave. We make work that demands attention — and earns it.
           </p>
           <div className="cta-row">
-            <Button variant="green">See the work</Button>
+            <Button variant="green" onClick={() => onNav && onNav("projects")}>See the work</Button>
             <Button variant="outline" onClick={() => onNav && onNav("approach")}>Our approach</Button>
           </div>
         </div>
@@ -27,7 +27,7 @@ function BraveHome({ onFlip, onLogo, onNav }) {
       <IntroBlock />
       <Approach />
       <Marquee />
-      <Projects mood="brave" />
+      <Projects mood="brave" onProject={onProject} />
       <Footer mood="brave" onFlip={onFlip} onNav={onNav} />
     </div>
   );

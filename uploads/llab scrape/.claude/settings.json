@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(& \"c:\\\\Users\\\\Crew\\\\llab scrape\\\\reencode-mp4.ps1\")"
+    ]
+  }
+}
