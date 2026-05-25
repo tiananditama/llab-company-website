@@ -1,0 +1,7 @@
+{
+  "public": ".",
+  "cleanUrls": false,
+  "rewrites": [
+    { "source": "/", "destination": "/ui_kits/portfolio_site/index.html" }
+  ]
+}
